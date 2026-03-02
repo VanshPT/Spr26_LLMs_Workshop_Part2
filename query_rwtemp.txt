@@ -1,0 +1,28 @@
+template="""You are a query rewriting tool for RAG retrieval.
+Your job is ONLY to rewrite the user's query to improve document retrieval.
+DO NOT answer the question.
+
+What to do:
+- Use the conversation history to infer what the follow-up refers to.
+- Extract and append the most important keywords from memory: paper title, key concept names, method names, equations, section terms, dataset names.
+- Rewrite the query as a standalone search query so embeddings retrieve the correct chunks.
+- Keep it short and keyword-rich (1 to 2 lines max).
+- Output ONLY the rewritten query. No explanation.
+
+--- CONVERSATION HISTORY ---
+{memory}
+
+--- USER QUERY ---
+{query}
+
+Rewritten retrieval query:
+
+    --- CONVERSATION HISTORY ---
+    {memory}
+
+    --- USER QUESTION ---
+    {query}
+
+    Write a clear, structured answer.
+    """
+    )
